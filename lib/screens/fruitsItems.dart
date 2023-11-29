@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:vkstore/assets.dart';
 import 'package:vkstore/elevatedButon.dart';
 import 'package:vkstore/productDeatails.dart';
-import 'package:vkstore/assets.dart';
+import 'package:vkstore/screens/groceryItems.dart';
 
 class FruitsItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget divider = const Divider(
-      thickness: 5,
+      thickness: 4,
       color: Colors.grey,
     );
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.purple,
+        foregroundColor: Colors.white,
         elevation: 2,
         title: const Text(
           'FRUITS',
@@ -20,9 +22,10 @@ class FruitsItems extends StatelessWidget {
               fontSize: 25,
               fontStyle: FontStyle.italic,
               fontWeight: FontWeight.bold,
-              color: Colors.black),
+              color: Colors.white),
         ),
       ),
+      bottomNavigationBar: SelectedItems(),
       body: ListView(padding: const EdgeInsets.all(20), children: [
         ProductDeatails(
             heading: 'APPLE' '\n' '1KG' '\n' 'Rs:100', avathar: applepic),
@@ -51,11 +54,12 @@ class FruitsItems extends StatelessWidget {
             heading: 'WATERMELON' '\n' 'Rs:20', avathar: watermelonpic),
         divider,
         ElevatedButtons(
+            txtColor: Colors.white,
             buttonAction: () {
               Navigator.of(context).pop('productsScreen');
             },
             buttonText: 'Back',
-            buttonColor: Colors.blueGrey),
+            buttonColor: Colors.purple),
       ]),
     );
   }

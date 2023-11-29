@@ -12,7 +12,9 @@ String vkstorepic = 'assets/avathar/vkstore.jpg';
 String vkstorepic2 = 'assets/avathar/vk2.jpg';
 String logovk = 'assets/avathar/log3.jpg';
 String logo4 = 'assets/avathar/logo4.jpg';
-
+String logo5 = 'assets/avathar/bg.jpg';
+String logo6 = 'assets/avathar/bg6.jpg';
+String logo7 = 'assets/avathar/bg5.jpg';
 // groceryphotos
 
 String ricepic = 'assets/items/rice.jpg';

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:vkstore/assets.dart';
+import 'package:vkstore/data.dart';
 import 'package:vkstore/elevatedButon.dart';
+import 'package:vkstore/screens/signup.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -7,114 +10,63 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(children: [
-        Container(
-          margin: const EdgeInsets.only(top: 140, left: 20, right: 20),
-          height: 350,
-          width: 500,
-          color: Colors.white,
-          child: Column(children: const [
-            Text(
-              'Login',
-              style: TextStyle(
-                  color: Colors.black,
-                  decorationColor: Colors.blue,
-                  fontSize: 50,
-                  fontFamily: 'vk font',
-                  fontStyle: FontStyle.italic,
-                  fontWeight: FontWeight.normal),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            TextField(
-              keyboardType: TextInputType.text,
-              enabled: true,
-              decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.green,
-                        width: 2,
-                      ),
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromARGB(255, 6, 171, 221),
-                      width: 2,
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20),
-                    ),
-                  ),
-                  labelText: 'Username',
-                  labelStyle: TextStyle(
-                    color: Colors.blueGrey,
-                    fontSize: 20,
-                  ),
-                  hintText: 'eg: faizal faizy',
-                  hintStyle: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 18,
-                  ),
-                  helperText: 'please enter your Username',
-                  helperStyle: TextStyle(
-                    color: Color.fromARGB(255, 20, 4, 3),
-                    fontSize: 15,
-                  ),
-                  suffixText: 'OK'),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            TextField(
-              keyboardType: TextInputType.text,
-              enabled: true,
-              decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.green,
-                        width: 2,
-                      ),
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromARGB(255, 6, 171, 221),
-                      width: 2,
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20),
-                    ),
-                  ),
-                  hintText: 'password',
-                  hintStyle: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 18,
-                  ),
-                  helperText: 'please enter your password',
-                  helperStyle: TextStyle(
-                    color: Color.fromARGB(255, 20, 4, 3),
-                    fontSize: 15,
-                  ),
-                  suffixText: 'OK'),
-            ),
-          ]),
-        ),
-        Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-          ElevatedButtons(
-            buttonAction: () {
-              Navigator.of(context).pushNamed('productsScreen');
-            },
-            buttonText: 'Submit',
-            buttonColor: Color.fromARGB(255, 30, 105, 11),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage(logo6),
           ),
-          ElevatedButtons(
-              buttonAction: () {
-                Navigator.of(context).pop('homePage');
-              },
-              buttonText: 'Cancel',
-              buttonColor: Colors.blueGrey)
+        ),
+        child: ListView(children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 80.0),
+            child: Column(children: [
+              const Text(
+                'Login',
+                style: TextStyle(
+                    color: Colors.black,
+                    decorationColor: Colors.blue,
+                    fontSize: 50,
+                    fontFamily: 'vk font',
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.normal),
+              ),
+              Gyap(space: 30),
+              const Datas(
+                labeltxt: 'Username',
+                hinttxt: 'eg: Muhammed Faisal v',
+                helprtxt: 'Please enter your username',
+              ),
+              Gyap(space: 20),
+              const Datas(
+                  labeltxt: 'Password',
+                  hinttxt: 'Password',
+                  helprtxt: 'Please enter your password'),
+              Gyap(space: 20),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+                ElevatedButtons(
+                  txtColor: Colors.black,
+                  buttonAction: () {
+                    Navigator.of(context)
+                        .pushReplacementNamed('productsScreen');
+                  },
+                  buttonText: 'Submit',
+                  buttonColor: Colors.white,
+                ),
+                ElevatedButtons(
+                    txtColor: Colors.white,
+                    buttonAction: () {
+                      Navigator.of(context).pop('homePage');
+                    },
+                    buttonText: 'Cancel',
+                    buttonColor: Colors.black)
+              ]),
+            ]),
+          ),
         ]),
-      ]),
+      ),
     );
   }
 }

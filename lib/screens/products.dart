@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vkstore/assets.dart';
+import 'package:vkstore/drawerList.dart';
 import 'package:vkstore/elevatedButon.dart';
 import 'package:vkstore/menu.dart';
 
@@ -14,7 +15,7 @@ class Products extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        shadowColor: Colors.grey,
+        shadowColor: Colors.black,
         centerTitle: true,
         toolbarHeight: 70,
         actions: [
@@ -22,20 +23,20 @@ class Products extends StatelessWidget {
             onPressed: () {},
             icon: const Icon(
               Icons.search,
-              color: Colors.black,
+              color: Colors.white70,
               size: 30,
             ),
-            highlightColor: Colors.grey,
+            highlightColor: Colors.white,
           ),
         ],
         automaticallyImplyLeading: true,
-        foregroundColor: Colors.black,
-        backgroundColor: Colors.green,
+        foregroundColor: Colors.white70,
+        backgroundColor: Colors.purple,
         primary: true,
         title: const Text(
           'OUR PRODUCTS..',
           style: TextStyle(
-              color: Colors.black,
+              color: Colors.white,
               fontStyle: FontStyle.italic,
               fontSize: 25,
               fontFamily: 'Vk font',
@@ -43,7 +44,7 @@ class Products extends StatelessWidget {
         ),
       ),
       body: ListView(
-        padding: const EdgeInsets.only(top: 20),
+        padding: const EdgeInsets.all(20),
         children: [
           Menu(
             headLine: 'GROCERY',
@@ -102,14 +103,28 @@ class Products extends StatelessWidget {
           ),
           space,
           ElevatedButtons(
-              buttonAction: () {
-                Navigator.of(context).pushNamed('homePage');
-              },
-              buttonText: 'Back',
-              buttonColor: Colors.blueGrey),
+            buttonAction: () {
+              Navigator.of(context).pushNamed('homePage');
+            },
+            buttonText: 'Back',
+            buttonColor: Colors.purple,
+            txtColor: Colors.white,
+          ),
         ],
       ),
-      drawer: Drawer(),
+      drawer: Center(
+        child: Container(
+          height: 400,
+          width: 300,
+          child: const Drawer(
+            backgroundColor: Colors.black54,
+            child: Padding(
+              padding: EdgeInsets.all(10.0),
+              child: DrawerList(),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

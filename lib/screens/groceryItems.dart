@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:vkstore/assets.dart';
 import 'package:vkstore/elevatedButon.dart';
 import 'package:vkstore/productDeatails.dart';
@@ -13,7 +12,8 @@ class GroceryItems extends StatelessWidget {
     );
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.green,
+          backgroundColor: Colors.purple,
+          foregroundColor: Colors.white,
           elevation: 2,
           title: const Text(
             'GROCERY ITEMS',
@@ -21,53 +21,10 @@ class GroceryItems extends StatelessWidget {
                 fontSize: 25,
                 fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.bold,
-                color: Colors.black),
+                color: Colors.white),
           ),
         ),
-        bottomNavigationBar:
-            Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-          Container(
-              height: 70,
-              width: 200,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10), color: Colors.white),
-              child: TextButton.icon(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.add_shopping_cart_outlined,
-                  color: Colors.black,
-                  size: 25,
-                ),
-                label: const Text(
-                  ' ITEMS ADDED..',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
-                ),
-              )),
-          Container(
-            height: 45,
-            width: 150,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10), color: Colors.green),
-            child: TextButton.icon(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.forward,
-                color: Colors.white,
-                size: 25,
-              ),
-              label: const Text(
-                'Next',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 26,
-                    fontWeight: FontWeight.w500),
-              ),
-            ),
-          ),
-        ]),
+        bottomNavigationBar: SelectedItems(),
         body: ListView(padding: const EdgeInsets.all(20), children: [
           ProductDeatails(
               heading: ' NORMAL RICE \n 1KG' ' \n' 'Rs:36', avathar: ricepic),
@@ -121,11 +78,60 @@ class GroceryItems extends StatelessWidget {
               heading: ' CUTEE SOAP \n 1P' ' \n' 'Rs:20', avathar: soappic),
           divider,
           ElevatedButtons(
+              txtColor: Colors.white,
               buttonAction: () {
                 Navigator.of(context).pop('productsScreen');
               },
               buttonText: 'Back',
-              buttonColor: Colors.blueGrey),
+              buttonColor: Colors.purple),
         ]));
+  }
+}
+
+class SelectedItems extends StatelessWidget {
+  const SelectedItems({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+      Container(
+        height: 70,
+        width: 150,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10), color: Colors.white),
+        child: TextButton.icon(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.add_shopping_cart_outlined,
+            color: Colors.black,
+            size: 25,
+          ),
+          label: const Text(
+            ' ITEMS ADDED..',
+            style: TextStyle(
+                color: Colors.black, fontSize: 17, fontWeight: FontWeight.bold),
+          ),
+        ),
+      ),
+      Container(
+        height: 45,
+        width: 130,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10), color: Colors.purple),
+        child: TextButton.icon(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.forward,
+            color: Colors.white,
+            size: 23,
+          ),
+          label: const Text(
+            'Next',
+            style: TextStyle(
+                color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
+          ),
+        ),
+      ),
+    ]);
   }
 }

@@ -40,19 +40,24 @@ class Menu extends StatelessWidget {
       ),
       ElevatedButton.icon(
         style: ButtonStyle(
-            minimumSize: MaterialStateProperty.all(
-              const Size(80, 50),
-            ),
-            backgroundColor: MaterialStateProperty.all(
-              Colors.purple,
-            ),
-            side: MaterialStateProperty.all(
-                const BorderSide(color: Colors.black, width: 2))),
+          minimumSize: MaterialStateProperty.all(
+            const Size(80, 50),
+          ),
+          backgroundColor: MaterialStateProperty.all(
+            Colors.purple,
+          ),
+          side: MaterialStateProperty.all(
+            const BorderSide(color: Colors.black, width: 2),
+          ),
+        ),
         onPressed: buttonAction,
-        icon: const Icon(Icons.forward),
+        icon: const Icon(
+          Icons.forward,
+          color: Colors.white,
+        ),
         label: const Text(
           'ADD TO CART',
-          style: TextStyle(fontSize: 20),
+          style: TextStyle(fontSize: 20, color: Colors.white),
         ),
       ),
     ]);

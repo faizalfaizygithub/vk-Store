@@ -8,7 +8,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.greenAccent,
+      backgroundColor: Colors.purple,
       body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Container(
           width: 300,
@@ -23,7 +23,8 @@ class HomePage extends StatelessWidget {
             Navigator.of(context).pushNamed('loginpage');
           },
           buttonText: 'Login',
-          buttonColor: Colors.blue,
+          buttonColor: Colors.white,
+          txtColor: Colors.black,
         ),
         const SizedBox(
           height: 10,
@@ -33,7 +34,8 @@ class HomePage extends StatelessWidget {
             Navigator.of(context).pushNamed('/signupPage');
           },
           buttonText: 'Signup',
-          buttonColor: Colors.purple,
+          buttonColor: Colors.black,
+          txtColor: Colors.white,
         ),
       ]),
     );

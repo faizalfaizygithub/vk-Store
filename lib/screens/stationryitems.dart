@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:vkstore/productDeatails.dart';
 import 'package:vkstore/assets.dart';
+import 'package:vkstore/productDeatails.dart';
+import 'package:vkstore/screens/groceryItems.dart';
 
 import '../elevatedButon.dart';
 
@@ -8,12 +9,13 @@ class StationryItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget divider = const Divider(
-      thickness: 5,
+      thickness: 4,
       color: Colors.grey,
     );
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.purple,
+        foregroundColor: Colors.white,
         elevation: 2,
         title: const Text(
           'STATIONERY ',
@@ -21,9 +23,10 @@ class StationryItems extends StatelessWidget {
               fontSize: 25,
               fontStyle: FontStyle.italic,
               fontWeight: FontWeight.bold,
-              color: Colors.black),
+              color: Colors.white),
         ),
       ),
+      bottomNavigationBar: SelectedItems(),
       body: ListView(padding: const EdgeInsets.all(20), children: [
         ProductDeatails(heading: ' NOTEBOOK \n' 'Rs:20', avathar: notepic),
         divider,
@@ -38,11 +41,13 @@ class StationryItems extends StatelessWidget {
             heading: ' BLACK BOARD' '\n' 'Rs:32', avathar: blackboardpic),
         divider,
         ElevatedButtons(
-            buttonAction: () {
-              Navigator.of(context).pop('productsScreen');
-            },
-            buttonText: 'Back',
-            buttonColor: Colors.blueGrey),
+          txtColor: Colors.white,
+          buttonAction: () {
+            Navigator.of(context).pop('productsScreen');
+          },
+          buttonText: 'Back',
+          buttonColor: Colors.purple,
+        ),
       ]),
     );
   }

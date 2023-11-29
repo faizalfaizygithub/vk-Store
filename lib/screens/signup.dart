@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:vkstore/assets.dart';
+import 'package:vkstore/data.dart';
 import 'package:vkstore/elevatedButon.dart';
 
 class SignUpPage extends StatelessWidget {
@@ -7,14 +9,20 @@ class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(children: [
-        Container(
-          margin: const EdgeInsets.only(top: 140, left: 20, right: 20),
-          height: 450,
-          width: 500,
-          color: Colors.white,
-          child: Column(children: const [
-            Text(
+        body: Container(
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage(logo6),
+        ),
+      ),
+      child: ListView(children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 30.0),
+          child: Column(children: [
+            const Text(
               'SignUp',
               style: TextStyle(
                   color: Colors.black,
@@ -24,131 +32,59 @@ class SignUpPage extends StatelessWidget {
                   fontStyle: FontStyle.italic,
                   fontWeight: FontWeight.normal),
             ),
-            SizedBox(
-              height: 20,
-            ),
-            TextField(
-              keyboardType: TextInputType.text,
-              enabled: true,
-              decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.green,
-                        width: 2,
-                      ),
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromARGB(255, 6, 171, 221),
-                      width: 2,
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20),
-                    ),
-                  ),
-                  labelText: 'Username',
-                  labelStyle: TextStyle(
-                    color: Colors.blueGrey,
-                    fontSize: 20,
-                  ),
-                  hintText: 'eg: faizal faizy',
-                  hintStyle: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 18,
-                  ),
-                  helperText: 'please enter your Username',
-                  helperStyle: TextStyle(
-                    color: Color.fromARGB(255, 20, 4, 3),
-                    fontSize: 15,
-                  ),
-                  suffixText: 'OK'),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            TextField(
-              keyboardType: TextInputType.text,
-              enabled: true,
-              decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.green,
-                        width: 2,
-                      ),
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromARGB(255, 6, 171, 221),
-                      width: 2,
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20),
-                    ),
-                  ),
-                  hintText: 'password',
-                  hintStyle: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 18,
-                  ),
-                  helperText: 'please enter your password',
-                  helperStyle: TextStyle(
-                    color: Color.fromARGB(255, 20, 4, 3),
-                    fontSize: 15,
-                  ),
-                  suffixText: 'OK'),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            TextField(
-              keyboardType: TextInputType.text,
-              enabled: true,
-              decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.green,
-                        width: 2,
-                      ),
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromARGB(255, 6, 171, 221),
-                      width: 2,
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20),
-                    ),
-                  ),
-                  hintText: 'Address',
-                  hintStyle: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 18,
-                  ),
-                  helperText: 'please enter your address',
-                  helperStyle: TextStyle(
-                    color: Color.fromARGB(255, 20, 4, 3),
-                    fontSize: 15,
-                  ),
-                  suffixText: 'OK'),
-            ),
+            Gyap(space: 20),
+            const Datas(
+                labeltxt: 'Username ',
+                hinttxt: 'eg: Muhammed Faisal v',
+                helprtxt: 'please enter your username'),
+            Gyap(space: 20),
+            const Datas(
+                labeltxt: 'Email',
+                hinttxt: 'eg: faizalfaizy648@gmail.com',
+                helprtxt: 'Please enter your mail id'),
+            Gyap(space: 20),
+            const Datas(
+                labeltxt: 'Password',
+                hinttxt: 'Password',
+                helprtxt: 'Please enter your password'),
+            Gyap(space: 20),
+            const Datas(
+                labeltxt: 'Confirm Password',
+                hinttxt: 'Confirm Password',
+                helprtxt: 'Please confirm your password'),
+            Gyap(space: 20),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+              ElevatedButtons(
+                txtColor: Colors.black,
+                buttonAction: () {
+                  Navigator.of(context).pushReplacementNamed('productsScreen');
+                },
+                buttonText: 'Submit',
+                buttonColor: Colors.white,
+              ),
+              ElevatedButtons(
+                  txtColor: Colors.white,
+                  buttonAction: () {
+                    Navigator.of(context).pop('homePage');
+                  },
+                  buttonText: 'Cancel',
+                  buttonColor: Colors.black),
+            ]),
           ]),
         ),
-        Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-          ElevatedButtons(
-            buttonAction: () {
-              Navigator.of(context).pushNamed('productsScreen');
-            },
-            buttonText: 'Submit',
-            buttonColor: Color.fromARGB(255, 30, 105, 11),
-          ),
-          ElevatedButtons(
-              buttonAction: () {
-                Navigator.of(context).pop('homePage');
-              },
-              buttonText: 'Cancel',
-              buttonColor: Colors.blueGrey)
-        ]),
       ]),
+    ));
+  }
+}
+
+class Gyap extends StatelessWidget {
+  final space;
+  Gyap({required this.space});
+
+  @override
+  Widget build(BuildContext context) {
+    return const SizedBox(
+      height: 20,
     );
   }
 }
